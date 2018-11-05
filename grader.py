@@ -37,7 +37,7 @@ def grade(data, header, problems):
 
     global acc
     for v in data:
-        fullName = v[1] + v[0]
+        fullName = v[0] + v[1]
         attempted = sum((1 for prob in toGrade if v[prob] in ('Y', 'N')))
         if attempted == len(toGrade):
             if fullName not in acc:
@@ -69,5 +69,5 @@ grade(data, header, problems)
 grade(data1, header1, problems1)
 final = final_grade()
      
-for k, v in final.items():
-    print k + ": " + str(v)
+for k in sorted(final):
+    print k + ": " + str(final[k])
